@@ -16,13 +16,16 @@ let tasks = [
     }
 ];
 
+//INCLUYENDO UN CONTADOR GLOBAL DE IDs
+let currentId = tasks.length > 0 ? Math.max(...tasks.map(task => task.id)) + 1 : 1;
+
 function getAllTasks(){
     return tasks;
 }
 
 function createTask(title, description){
     const newTask = {
-        id: tasks.length + 1,
+        id: currentId++,
         title,
         description
     };
